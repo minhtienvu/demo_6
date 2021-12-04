@@ -1,7 +1,7 @@
 <div class="container" style='width: 1200px'>
   <h3>Hien thi thong tin user</h3>
-  <p>Name: ................</p>
-  <p>Email: ................</p>
+  <p>Name: <%= @user.name %></p>
+  <p>Email: <%= @user.email %><p>
   <p>Ngày sinh: ................</p>
   <p>Địa chỉ: ................</p>
   <p>Số điện thoại: ................</p>
@@ -9,6 +9,7 @@
   <p>Tình trạng tiêm vacine: ................</p>
   <p>Ngôn ngữ: .........</p>
 
+  <%= link_to 'Sumit', edit_user_path(1), class: 'btn btn-danger' %>
   <%= link_to 'Trở lại', users_path, class: 'btn btn-secondary' %>
 </div>
 
