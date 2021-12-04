@@ -1,6 +1,6 @@
 <div class="container" style='width: 1200px'>
 
-  <%= form_with model: @user do |f| %>
+  <%= form_with model: user do |f| %>
     <div class="mb-3">
       <%= f.label :name, 'Họ và tên', class: 'form-label' %>
       <%= f.text_field :name, class: 'form-control' %>
@@ -47,7 +47,7 @@
       <% Language.all.each do |language| %>
         <div class='row'>
           <label>
-            <%= f.check_box :language, { multiple: true }, language.id, nil %>
+            <%= f.check_box :language, { multiple: true, checked: user.language.include?(language.id.to_s) }, language.id, nil %>
             <%= language.name %>
           </label>
         </div>

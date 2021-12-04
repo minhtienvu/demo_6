@@ -1,15 +1,15 @@
 <div class="container" style='width: 1200px'>
   <h3>Hien thi thong tin user</h3>
   <p>Name: <%= @user.name %></p>
-  <p>Email: <%= @user.email %><p>
-  <p>Ngày sinh: ................</p>
-  <p>Địa chỉ: ................</p>
-  <p>Số điện thoại: ................</p>
-  <p>Giới tính: ................</p>
-  <p>Tình trạng tiêm vacine: ................</p>
-  <p>Ngôn ngữ: .........</p>
+  <p>Email: <%= @user.email %></p>
+  <p>Ngày sinh: <%= @user.dob %></p>
+  <p>Địa chỉ: <%= @user.address %></p>
+  <p>Số điện thoại: <%= @user.phone %></p>
+  <p>Giới tính: <%= @user.gender %></p>
+  <p>Tình trạng tiêm vacine: <%= @user.vacine %></p>
+  <p>Ngôn ngữ: <%= Language.where(id: @user.language).pluck(:name).join(', ') %></p>
 
-  <%= link_to 'Sumit', edit_user_path(1), class: 'btn btn-danger' %>
+  <%= link_to 'Edit', edit_user_path(@user), class: 'btn btn-danger' %>
   <%= link_to 'Trở lại', users_path, class: 'btn btn-secondary' %>
 </div>
 

@@ -1,4 +1,7 @@
 class UsersController < ApplicationController
+
+  before_action :set_user, only: [:show, :edit, :update, :destroy]
+
   def index
     @users = User.all
   end
@@ -8,6 +11,12 @@ class UsersController < ApplicationController
   end
 
   def create
+    @user = User.new(user_params)
+    if @user.save
+      redirect_to users_path
+    else
+      render 'new'
+    end
   end
 
   def show
@@ -15,4 +24,31 @@ class UsersController < ApplicationController
 
   def edit
   end
+
+  def update
+    if @user.update(user_params)
+      redirect_to user_path
+    else
+      render 'edit'
+    end
+  end
+
+  def destroy
+    if @user.destroy
+      redirect_to users_path
+    end
+  end
+
+  private
+
+    def user_params
+      params.require(:user).permit(:name, :address, :dob, :email, :phone, :gender, :vacine, language: [])
+    end
+
+    def set_user
+      @user = User.find_by(id: params[:id])
+      if @user.blank?
+        render file: 'public/404.html'
+      end
+    end
 end
