@@ -1,4 +1,53 @@
-<h1>Users#index</h1>
-<p>Find me in app/views/users/index.html.erb</p>
 
-<%= link_to 'New User', new_user_path, class: 'btn btn-primary' %>
+<div class="container mt-4" style='width: 1200px'>
+
+  <%= link_to 'New User', new_user_path, class: 'btn btn-primary' %>
+
+  <table class="table mt-4">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Tên</th>
+        <th scope="col">Ngày sinh</th>
+        <th scope="col">Email</th>
+        <th scope="col">Địa chỉ</th>
+        <th scope="col">Phone</th>
+        <th scope="col">Giới tính</th>
+        <th scope="col">Vacine</th>
+        <th scope="col">Ngôn ngữ</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">1</th>
+        <td>Tiến</td>
+        <td>22/10/1990</td>
+        <td>tienvm@kaopiz.com</td>
+        <td>Hà Nội</td>
+        <td>09389238928</td>
+        <td>Nam</td>
+        <td>Đã tiêm chủng</td>
+        <td>Vietnamese, English </td>
+        <td>
+          <%= link_to 'Show', user_path(1), class: 'btn btn-primary' %>
+          <%= link_to 'Edit', edit_user_path(1), class: 'btn btn-danger' %>
+        </td>
+      </tr>
+      <tr>
+        <th scope="row">2</th>
+        <td>Tiến</td>
+        <td>22/10/1990</td>
+        <td>tienvm@kaopiz.com</td>
+        <td>Hà Nội</td>
+        <td>09389238928</td>
+        <td>Nam</td>
+        <td>Đã tiêm chủng</td>
+        <td>Vietnamese, English </td>
+        <td>
+          <%= link_to 'Show', user_path(1), class: 'btn btn-primary' %>
+          <%= link_to 'Edit', edit_user_path(1), class: 'btn btn-danger' %>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
